@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { SkyModalService, SkyModalCloseArgs } from '@skyux/modals';
 import { SkyModalDemoComponent, SkyModalDemoContext } from './skymodaldemo.component';
 
@@ -7,15 +7,17 @@ import { SkyModalDemoComponent, SkyModalDemoContext } from './skymodaldemo.compo
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'skyuxdialogdemo';
 
   constructor(private skyModalService: SkyModalService) {
-    
+
   }
 
   ngOnInit() {
-    this.openModal('fullScreenModal')
+    setTimeout(() => {
+      this.openModal('fullScreenModal');
+    });
   }
 
   public openModal(type: string) {
